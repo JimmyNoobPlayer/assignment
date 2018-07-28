@@ -32,14 +32,14 @@ namespace Assingment1Car {
         }
 
 
-        public const int MaxLegalSpeed=60;
-        public const int MinLegalSpeed=0;
+        public const double MaxLegalSpeed = 60;
+        public const double MinLegalSpeed = -0.01;
         public const string DefaultMake = "Ford";
         public const string DefaultModel = "Pinto";
         public const int DefaultYear = 1990;
 
-        private int currentSpeed;
-        public int CurrentSpeed {
+        private double currentSpeed;
+        public double CurrentSpeed {
             get { return currentSpeed; }
             private set { currentSpeed = value; }
         }
@@ -56,24 +56,56 @@ namespace Assingment1Car {
 
         public Car(int year, string make, string model) {
             NumCarsMade++;
+            this.year = year;
+            this.make = make;
+            this.model = model;
         }
 
+        public Car()
+            :this(DefaultYear,DefaultMake,DefaultModel)
+        {}
 
 
-        public void setSpeed(int newSpeed) {
-            //possible feelings caused by the speed
-            private const string stopped = "Car is parked.";
+        //possible feelings caused by the speed
+        private const string reverse = "Uh oh, the car is going in reverse? This shouldn't happen!";
+        private const string stopped = "Car is parked.";
         private const string slow = "That guy behind you is getting angry, better speed up.";
         private const string moderate = "If you move your arms really fast, it feels like you're running at an incredible speed!";
+        private const string prettyFast = "I'm getting nervous now, this is a little faster than I like.";
         private const string tooFast = "Slow down!";
 
-            currentSpeed = newSpeed;
-            switch(
+        private const string extraTooSlow = " This is illegally slow.";
+        private const string extraTooFast = " This is illegally fast.";
+
+        //set the speed to anything, no checking or modifying the set speed. Also set the feeling based on the speed. THis is the only way to set the Feeling.
+        public void setSpeed(double newSpeed) {
+
+            CurrentSpeed = newSpeed;
+            if (CurrentSpeed < 0.0) Feeling = reverse;
+            else if (CurrentSpeed == 0.0) Feeling = stopped;
+            else if (CurrentSpeed < 10.0) Feeling = slow;
+            else if (CurrentSpeed < 50.0) Feeling = moderate;
+            else Feeling = tooFast;
+
+            if (CurrentSpeed < MinLegalSpeed) Feeling += extraTooSlow;
+            if (CurrentSpeed > MaxLegalSpeed) Feeling += extraTooFast;
+
+
 
         }
-        public void changeSpeed() {
 
+        //changes the amount of speed,
+        //stops at zero, no negative values.
+        public void changeSpeed(double change) {
+            double newSpeed = CurrentSpeed + change;
+            if (newSpeed < 0.0) newSpeed = 0.0;
+            setSpeed(newSpeed);
         }
+
+        public void smallSpeedUp() { changeSpeed(1.0); }
+        public void bigSpeedUp() { changeSpeed(12.0); }
+        public void smallSlowDown() { changeSpeed(-1.0); }
+        public void bigSlowDown() { changeSpeed(-12.0); }
 
 
 

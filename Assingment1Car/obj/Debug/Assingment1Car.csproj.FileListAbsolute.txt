@@ -1,1 +1,7 @@
 C:\Users\james\Desktop\Git\Assingment1Car\Assingment1Car\bin\Debug\Assingment1Car.exe.config
+C:\Users\james.mcternan\Desktop\tempgit\assignment\Assingment1Car\bin\Debug\Assingment1Car.exe.config
+C:\Users\james.mcternan\Desktop\tempgit\assignment\Assingment1Car\bin\Debug\Assingment1Car.exe
+C:\Users\james.mcternan\Desktop\tempgit\assignment\Assingment1Car\bin\Debug\Assingment1Car.pdb
+C:\Users\james.mcternan\Desktop\tempgit\assignment\Assingment1Car\obj\Debug\Assingment1Car.csprojResolveAssemblyReference.cache
+C:\Users\james.mcternan\Desktop\tempgit\assignment\Assingment1Car\obj\Debug\Assingment1Car.exe
+C:\Users\james.mcternan\Desktop\tempgit\assignment\Assingment1Car\obj\Debug\Assingment1Car.pdb
