@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Assingment1Car {
     class Program {
+
+        static void displayControls()
+        {
+            Console.WriteLine("(A)ccelerate, (B)rake, (F)loor it, (S)lam the brakes, attempt to (P)ark.");
+        }
+
         static void Main(string[] args) {
+
+            //inside a loop
+            
+            Char.TryParse(Console.ReadLine())
 
 
 

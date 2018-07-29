@@ -33,7 +33,10 @@ namespace Assingment1Car {
 
 
         public const double MaxLegalSpeed = 60;
-        public const double MinLegalSpeed = -0.01;
+        public const double MinLegalSpeed = -0.01; //it's really weird to set this to a small negative value.... I'm not even sure 
+                                                   //why there is a min and max speed. I think I should mostly ignore these values, besides a simple text message and
+                                                   //nothing preventing us from doing anything.
+
         public const string DefaultMake = "Ford";
         public const string DefaultModel = "Pinto";
         public const int DefaultYear = 1990;
@@ -43,6 +46,8 @@ namespace Assingment1Car {
             get { return currentSpeed; }
             private set { currentSpeed = value; }
         }
+
+        //this Feeling should only be changed through the setSpeed method.
         private string getAFeelingSoComplicated;
         public string Feeling {
             get { return getAFeelingSoComplicated; }
